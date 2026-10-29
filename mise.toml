@@ -2,7 +2,7 @@
 description = "Build .deb package in makedeb container"
 run = """
 docker run --rm -v $(pwd):/src:ro -v $(pwd):/out \
-  ghcr.io/makedeb/makedeb:debian-bullseye bash -c '
+  ghcr.io/makedeb/makedeb:debian-bookworm bash -c '
   set -e
   sudo apt-get update -qq 2>&1 | tail -1
   sudo apt-get install -y -qq curl libgphoto2-dev libclang-dev pkg-config libudev-dev gcc rsync 2>&1 | tail -3

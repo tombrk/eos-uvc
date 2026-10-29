@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, dead_code)]
 
+mod esphome;
+
 mod bindings {
     include!(concat!(env!("OUT_DIR"), "/uvc_bindings.rs"));
 }
@@ -266,6 +268,8 @@ fn main() -> Result<()> {
         let _ = camera.set_config(&vf).wait();
     }
     *CAMERA.lock().unwrap() = Some(CameraState { ctx, camera });
+
+    esphome::spawn(&STREAMING);
 
     let width = PREVIEW_WIDTH.load(Ordering::Relaxed);
     let height = PREVIEW_HEIGHT.load(Ordering::Relaxed);

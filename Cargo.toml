@@ -1,6 +1,6 @@
 [package]
 name = "eos-uvc"
-version = "0.2.8"
+version = "0.3.0"
 edition = "2021"
 
 [build-dependencies]
@@ -18,3 +18,7 @@ log = "0.4.21"
 usb-gadget = "1.1.1"
 nix = { version = "0.29", features = ["ioctl", "event", "mman", "fs"] }
 libc = "0.2"
+esphome-native-api = "3"
+mdns-sd = "0.21.6"
+base64 = "0.23.1"
+tokio = { version = "1.54.1", features = ["rt", "net", "time", "sync", "macros"] }
